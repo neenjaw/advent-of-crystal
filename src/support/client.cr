@@ -1,9 +1,11 @@
 require "http"
 require "uri"
+
 require "./config"
 require "./problem_part_enum"
+require "./client/submit_response"
 
-class AdventOfCodeClient
+class Client
   AOC_SCHEME             = "https"
   AOC_HOST               = "adventofcode.com"
   AOC_PUZZLE_PATH        = "/%<year>d/day/%<day>d"
@@ -29,14 +31,14 @@ class AdventOfCodeClient
     response.body
   end
 
-  def post_solution(day : Int32, year : Int32, part : ProblemPart, answer : String) : String
+  def submit_solution(day : Int32, year : Int32, part : ProblemPart, answer : String) : SubmitResponse
     path = (AOC_PUZZLE_PATH + AOC_PUZZLE_SUBMIT_PATH) % {year: year, day: day}
     uri = URI.new scheme: AOC_SCHEME, host: AOC_HOST
     client = HTTP::Client.new uri
     client.post(path: path, headers: post_headers, form: get_form_encoded(part, answer)) do |response|
-      raise "Unable to post response" if !response.status.ok?
+      raise "Unable to post solution attempt" if !response.status.ok?
 
-      response.body_io.gets_to_end
+      return SubmitResponse.parse_from_html(response.body_io)
     end
   end
 

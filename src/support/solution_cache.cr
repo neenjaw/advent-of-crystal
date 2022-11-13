@@ -26,11 +26,11 @@ class SolutionCache
           .try &.find { |test_result| test_result.answer === answer }
   end
 
-  def set(part : ProblemPart, answer : String)
+  def set(part : ProblemPart, answer : String, message : String, correct : Bool)
     cache.by_year[year] ||= YearResults.new
     cache.by_year[year].by_day[day] ||= DayResults.new(year, day)
     cache.by_year[year].by_day[day].by_part[part] ||= [] of TestResult
-    cache.by_year[year].by_day[day].by_part[part] << TestResult.new(year, day, part, answer, "", false)
+    cache.by_year[year].by_day[day].by_part[part] << TestResult.new(year, day, part, answer, message, correct)
     serialize_cache_file if @persist
   end
 

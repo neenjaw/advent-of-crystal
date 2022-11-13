@@ -1,4 +1,4 @@
-require "./advent_of_code_client"
+require "./client"
 
 class InputData
   AOC_INPUT_FILE_NAME = "input.txt"
@@ -12,7 +12,7 @@ class InputData
   def input : String
     return read_cache if cached?
 
-    input = AdventOfCodeClient.new.get_input day: day, year: year
+    input = Client.new.get_input day: day, year: year
 
     create_cache(input)
   end
