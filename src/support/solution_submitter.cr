@@ -23,5 +23,3 @@ class SolutionSubmitter
     cache.set(result)
   end
 end
-
-SolutionSubmitter.new(1999, 2)
