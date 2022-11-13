@@ -6,7 +6,7 @@ class InputData
   getter day : Int32
   getter year : Int32
 
-  def initialize(@day : Int32, @year : Int32 = 2022)
+  def initialize(@year : Int32, @day : Int32)
   end
 
   def input : String
