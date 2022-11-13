@@ -9,8 +9,6 @@ enum ProblemPart
   B = 2
 end
 
-alias MethodResult = {status: Symbol, response: String?}
-
 class AdventOfCodeClient
   AOC_SCHEME             = "https"
   AOC_HOST               = "adventofcode.com"
@@ -37,16 +35,14 @@ class AdventOfCodeClient
     response.body
   end
 
-  def post_solution(day : Int32, year : Int32, part : ProblemPart, value : Value) : MethodResult
+  def post_solution(day : Int32, year : Int32, part : ProblemPart, value : Value) : String
     path = (AOC_PUZZLE_PATH + AOC_PUZZLE_SUBMIT_PATH) % {year: year, day: day}
     uri = URI.new scheme: AOC_SCHEME, host: AOC_HOST
     client = HTTP::Client.new uri
     client.post(path: path, headers: post_headers, form: get_form_encoded(part, value)) do |response|
-      if response.status.ok?
-        {status: :success, response: response.body_io.gets_to_end}
-      else
-        {status: :failed, response: response.body_io.gets_to_end}
-      end
+      raise "Unable to post response" if !response.status.ok?
+
+      response.body_io.gets_to_end
     end
   end
 
