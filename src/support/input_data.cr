@@ -6,9 +6,7 @@ class InputData
   getter day : Int32
   getter year : Int32
 
-  def initialize(day : Int32, year : Int32 = 2022)
-    @day = day
-    @year = year
+  def initialize(@day : Int32, @year : Int32 = 2022)
   end
 
   def input : String
@@ -40,5 +38,3 @@ class InputData
     content
   end
 end
-
-p InputData.new(day: 1, year: 2021).input
