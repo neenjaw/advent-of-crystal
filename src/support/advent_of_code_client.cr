@@ -43,9 +43,9 @@ class AdventOfCodeClient
     client = HTTP::Client.new uri
     client.post(path: path, headers: post_headers, form: get_form_encoded(part, value)) do |response|
       if response.status.ok?
-        {status: :success, response: response.body_io.gets}
+        {status: :success, response: response.body_io.gets_to_end}
       else
-        {status: :failed, response: response.body_io.gets}
+        {status: :failed, response: response.body_io.gets_to_end}
       end
     end
   end
