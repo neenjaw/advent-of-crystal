@@ -27,11 +27,17 @@ class SolutionCache
   end
 
   def set(part : ProblemPart, answer : String, message : String, correct : Bool)
+    return get(part, answer) if has?(part, answer)
+
+    test_result = TestResult.new(year, day, part, answer, message, correct)
+
     cache.by_year[year] ||= YearResults.new
     cache.by_year[year].by_day[day] ||= DayResults.new(year, day)
     cache.by_year[year].by_day[day].by_part[part] ||= [] of TestResult
-    cache.by_year[year].by_day[day].by_part[part] << TestResult.new(year, day, part, answer, message, correct)
+    cache.by_year[year].by_day[day].by_part[part] << test_result
     serialize_cache_file if @persist
+
+    test_result
   end
 
   def has?(part : ProblemPart, answer : String) : Bool
