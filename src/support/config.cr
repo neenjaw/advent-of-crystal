@@ -1,7 +1,7 @@
 require "ini"
 
 class Config
-  DEFAULT_PATH = Path.new(__DIR__, "support.ini")
+  DEFAULT_PATH = Path.new(Dir.current, "support.ini")
 
   getter file_path : Path
 
