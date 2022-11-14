@@ -1,2 +1,2 @@
-class RateLimitException < Exception
+class AdventOfCrystal::RateLimitException < Exception
 end

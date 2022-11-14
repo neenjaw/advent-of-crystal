@@ -5,7 +5,7 @@ require "./config"
 require "./common"
 require "./client/submit_response"
 
-class Client
+class AdventOfCrystal::Client
   AOC_SCHEME             = "https"
   AOC_HOST               = "adventofcode.com"
   AOC_PUZZLE_PATH        = "/%<year>d/day/%<day>d"

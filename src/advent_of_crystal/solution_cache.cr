@@ -3,7 +3,7 @@ require "json"
 require "./common"
 require "./solution_cache/results"
 
-class SolutionCache
+class AdventOfCrystal::SolutionCache
   CACHE_FILE = Path.new(Dir.current, "cache.json")
 
   getter day : Int32

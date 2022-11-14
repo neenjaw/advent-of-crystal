@@ -1,4 +1,4 @@
-enum ProblemPart
+enum AdventOfCrystal::ProblemPart
   A = 1
   B = 2
 

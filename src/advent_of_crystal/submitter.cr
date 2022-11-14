@@ -2,7 +2,7 @@ require "./client"
 require "./common"
 require "./solution_cache"
 
-class SolutionSubmitter
+class AdventOfCrystal::Submitter
   getter day : Int32
   getter year : Int32
 

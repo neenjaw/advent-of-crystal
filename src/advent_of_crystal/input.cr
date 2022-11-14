@@ -1,6 +1,6 @@
 require "./client"
 
-class InputData
+class AdventOfCrystal::Input
   AOC_INPUT_FILE_NAME = "input.txt"
 
   getter day : Int32

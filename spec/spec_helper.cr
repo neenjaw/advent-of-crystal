@@ -1,2 +1,2 @@
 require "spec"
-require "../src/advent-of-crystal"
+require "../src/advent_of_crystal"

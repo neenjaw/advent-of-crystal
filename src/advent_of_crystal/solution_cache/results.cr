@@ -1,6 +1,6 @@
 require "json"
 
-class SolutionCache
+class AdventOfCrystal::SolutionCache
   class Results
     include JSON::Serializable
 

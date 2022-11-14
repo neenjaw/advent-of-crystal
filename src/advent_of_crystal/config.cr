@@ -1,6 +1,6 @@
 require "ini"
 
-class Config
+class AdventOfCrystal::Config
   DEFAULT_PATH = Path.new(Dir.current, "support.ini")
 
   getter file_path : Path

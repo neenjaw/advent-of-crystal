@@ -2,7 +2,7 @@ require "xml"
 
 require "../exception"
 
-class Client
+class AdventOfCrystal::Client
   class SubmitResponse
     getter correct : Bool
     getter message : String
