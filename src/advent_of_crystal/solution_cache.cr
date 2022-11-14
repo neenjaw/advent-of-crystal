@@ -1,6 +1,6 @@
 require "json"
 
-require "./problem_part_enum"
+require "./common"
 require "./solution_cache/results"
 
 class SolutionCache

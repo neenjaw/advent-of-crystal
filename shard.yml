@@ -1,0 +1,13 @@
+name: advent_of_crystal
+version: 0.1.0
+
+authors:
+  - Tim Austin <tim@neenjaw.com>
+
+targets:
+  advent_of_crystal:
+    main: src/advent_of_crystal.cr
+
+crystal: 1.6.2
+
+license: MIT

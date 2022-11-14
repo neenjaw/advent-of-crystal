@@ -2,7 +2,7 @@ require "http"
 require "uri"
 
 require "./config"
-require "./problem_part_enum"
+require "./common"
 require "./client/submit_response"
 
 class Client

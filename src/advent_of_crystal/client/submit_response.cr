@@ -1,6 +1,6 @@
 require "xml"
 
-require "../exception/rate_limit_exception"
+require "../exception"
 
 class Client
   class SubmitResponse

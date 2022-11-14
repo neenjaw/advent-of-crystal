@@ -1,5 +1,5 @@
 require "./client"
-require "./problem_part_enum"
+require "./common"
 require "./solution_cache"
 
 class SolutionSubmitter
@@ -25,5 +25,3 @@ class SolutionSubmitter
     cache.set(part, answer, result.message, result.correct)
   end
 end
-
-p SolutionSubmitter.new(2018, 1).submit(ProblemPart::A, "80")
