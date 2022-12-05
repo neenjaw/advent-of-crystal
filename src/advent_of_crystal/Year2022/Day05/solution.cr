@@ -37,7 +37,7 @@ class Puzzle
   def move_many(from : Int32, to : Int32, count : Int32)
     values = @stacks[from].shift(count)
     @stacks[to] ||= [] of Char
-    values.reverse.each { |v| @stacks[to].unshift(v) }
+    @stacks[to] = values + @stacks[to]
   end
 
   def get_tops
