@@ -7,8 +7,6 @@ puts "📖 Reading #{input_file}:"
 
 puzzle_in, moves_in = File.read(input_file).chomp.split(/\n\n/).map(&.split(/\n/))
 
-# pp puzzle_in
-
 class Puzzle
   def initialize(input)
     @stacks = {} of Int32 => Array(Char)
