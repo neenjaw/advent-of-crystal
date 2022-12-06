@@ -14,12 +14,12 @@ class Puzzle
     input.reverse[1..].each do |line|
       line.chars.in_groups_of(4).each_with_index do |group, i|
         _, c = group
-        push(i + 1, c) unless !c || c == ' '
+        unshift_stack(i + 1, c) unless !c || c == ' '
       end
     end
   end
 
-  def push(col : Int32, value : Char)
+  def unshift_stack(col : Int32, value : Char)
     @stacks[col] ||= [] of Char
     @stacks[col].unshift(value)
   end
@@ -30,8 +30,7 @@ class Puzzle
 
   private def do_move(from, to)
     value = @stacks[from].shift
-    @stacks[to] ||= [] of Char
-    @stacks[to].unshift(value)
+    unshift_stack(to, value)
   end
 
   def move_many(from : Int32, to : Int32, count : Int32)
